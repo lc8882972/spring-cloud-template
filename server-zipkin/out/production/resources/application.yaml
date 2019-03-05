@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name : microservice-zipkin-server
+  zipkin:
+    enabled: false
 #zipkin:
 #  storage:
 #    type: mem

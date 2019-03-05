@@ -17,10 +17,20 @@ spring:
     url: jdbc:mysql://localhost:3306/meou?useUnicode=true&characterEncoding=utf-8
     username: root
     password: mariadb
-    # schema: classpath:import.sql
     initialSize: 5
     minIdle: 5
     maxActive: 20
     maxWait: 60000
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
+
+#management.metrics.export:
+#  influx:
+#    enabled: true
+#    step: PT30S
+#    readTimeout: PT30S
+#    batchSize: 20000
+#    uri: http://localhost:8086/write
+#    userName: root
+#    password: root
+#    db: metrics

@@ -28,8 +28,8 @@ public class CustomUserDetailsService implements UserDetailsService {
     private User mockUser() {
 
         Collection<GrantedAuthority> authorities = new HashSet<>();
-
-        authorities.add(new SimpleGrantedAuthority("admin"));//用户所拥有的角色信息
+        //用户所拥有的角色信息
+        authorities.add(new SimpleGrantedAuthority("admin"));
 
         User user = new User("admin", "123456", authorities);
 

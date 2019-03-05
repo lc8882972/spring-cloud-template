@@ -10,5 +10,5 @@ spring:
 zuul:
   routes:
     api:
-      path: /api/**
-      serviceId: service-feign
+      path: /product/**
+      serviceId: service-product

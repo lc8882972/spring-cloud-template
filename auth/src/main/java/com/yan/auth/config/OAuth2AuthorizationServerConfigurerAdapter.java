@@ -34,11 +34,7 @@ public class OAuth2AuthorizationServerConfigurerAdapter extends AuthorizationSer
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-        clients.withClientDetails(clientDetails())
-                .withClient("client") // client_id
-                .secret("secret") // client_secret
-                .authorizedGrantTypes("authorization_code") // 该client允许的授权类型
-                .scopes("api"); // 允许的授权范围;
+        clients.withClientDetails(clientDetails());
     }
 
     @Override
@@ -58,7 +54,7 @@ public class OAuth2AuthorizationServerConfigurerAdapter extends AuthorizationSer
         tokenServices.setSupportRefreshToken(false);
         tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
-        tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30)); // 30天
+        tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30));
         endpoints.tokenServices(tokenServices);
     }
 

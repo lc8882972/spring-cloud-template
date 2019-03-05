@@ -1,0 +1,23 @@
+server:
+  port: 8876
+
+spring:
+  application:
+    name: service-pay
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  security:
+    enabled: false
+  metrics:
+    export:
+      atlas:
+        enabled: true
+        step: PT10S
+        readTimeout: PT30S
+        batchSize: 20000
+        uri: http://localhost:7101/api/v1/publish

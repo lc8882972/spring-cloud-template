@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(value = "service-hi", fallback = SayHiServiceHystric.class)
+@FeignClient(value = "service-product", fallback = SayHiServiceHystric.class)
 public  interface SayHiService {
-    @RequestMapping(value = "/hi",method = RequestMethod.GET)
-    String sayHiFromClientOne(@RequestParam(value = "name") String name);
+    @RequestMapping(value = "/books",method = RequestMethod.GET)
+    String sayHiFromClientOne();
 }
