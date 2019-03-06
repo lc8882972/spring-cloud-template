@@ -1,0 +1,20 @@
+{
+  "discoveryEntity": {
+    "versionFilterEntity": {
+      "versionEntityMap": {
+        "gateway": [
+          {
+            "consumerServiceName": "gateway",
+            "providerServiceName": "nacos-consumer",
+            "consumerVersionValueList": [
+              "1.0"
+            ],
+            "providerVersionValueList": [
+              "1.0"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

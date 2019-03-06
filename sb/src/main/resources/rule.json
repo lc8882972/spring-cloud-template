@@ -1,0 +1,29 @@
+{
+  "discoveryEntity": {
+    "hostFilterEntity": {
+      "filterType": "BLACKLIST",
+      "filterMap": {
+        "nacos-provider": [
+          "127.0",
+          "192.168"
+        ]
+      }
+    },
+    "versionFilterEntity": {
+      "versionEntityMap": {
+        "nacos-consumer": [
+          {
+            "consumerServiceName": "nacos-consumer",
+            "providerServiceName": "nacos-provider",
+            "consumerVersionValueList": [
+              "1.0"
+            ],
+            "providerVersionValueList": [
+              "1.0"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
