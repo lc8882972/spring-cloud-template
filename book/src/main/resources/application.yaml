@@ -1,0 +1,21 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: service-book
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        metadata:
+          version: 1.0
+          group: DEFAULT_GROUP
+    sentinel:
+      transport:
+        port: 8919
+        dashboard: localhost:8090
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -4,8 +4,7 @@
       "filterType": "BLACKLIST",
       "filterMap": {
         "nacos-provider": [
-          "127.0",
-          "192.168"
+          "127.0.0.1"
         ]
       }
     },

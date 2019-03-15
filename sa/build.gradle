@@ -1,46 +1,42 @@
 plugins {
-	id 'org.springframework.boot' version '2.0.6.RELEASE'
-	id 'java'
-	id 'idea'
+    id 'org.springframework.boot' version '2.0.7.RELEASE'
+    id 'java'
+    id 'idea'
 }
 
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.yan'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
-
-repositories {
-	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-}
 
 ext {
-	set('springCloudVersion', 'Finchley.SR2')
-	set('discoveryPluginVersion', '4.8.2.6')
+    set('springCloudVersion', 'Finchley.SR2')
+    set('discoveryPluginVersion', '4.8.3')
     set('springCloudAlibabaVersion', '0.2.1.RELEASE')
 }
 
+repositories {
+    maven({ url 'https://maven.aliyun.com/repository/central' })
+    mavenCentral()
+}
+
 dependencies {
-	implementation group: 'com.nepxion', name: 'discovery-plugin-starter-nacos'
-	implementation group: 'com.nepxion', name: 'discovery-plugin-config-center-starter-nacos'
-	implementation group: 'com.nepxion', name: 'discovery-plugin-strategy-starter-service'
-	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-alibaba-sentinel'
-	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-alibaba-nacos-config'
-	implementation group: 'org.springframework.cloud', name: 'spring-cloud-alibaba-sentinel-datasource'
-	implementation 'org.springframework.cloud:spring-cloud-starter-zipkin'
-	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.alibaba.csp:sentinel-datasource-extension'
+    implementation 'com.alibaba.csp:sentinel-datasource-nacos'
+    implementation 'com.nepxion:discovery-plugin-starter-nacos'
+    implementation 'com.nepxion:discovery-plugin-config-center-starter-nacos'
+    implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-sentinel'
+    implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
         mavenBom "org.springframework.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
-		mavenBom "com.nepxion:discovery:${discoveryPluginVersion}"
-	}
+        mavenBom "com.nepxion:discovery:${discoveryPluginVersion}"
+    }
 }
-

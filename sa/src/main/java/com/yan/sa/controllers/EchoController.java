@@ -29,9 +29,9 @@ public class EchoController {
         return useLocalCache;
     }
 
-    public String exceptionHandler(long s, BlockException ex) {
+    public String exceptionHandler(BlockException ex) {
         // Do some log here.
         ex.printStackTrace();
-        return "Oops, error occurred at " + s;
+        return "Oops, error occurred at ";
     }
 }
