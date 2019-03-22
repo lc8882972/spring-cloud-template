@@ -21,12 +21,20 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.projectlombok:lombok:1.18.6'
     implementation 'com.alibaba.csp:sentinel-datasource-extension'
     implementation 'com.alibaba.csp:sentinel-datasource-nacos'
     implementation 'com.nepxion:discovery-plugin-starter-nacos'
+    implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-sentinel'
     implementation 'com.nepxion:discovery-plugin-config-center-starter-nacos'
     implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-sentinel'
     implementation 'org.springframework.cloud:spring-cloud-starter-alibaba-nacos-config'
+    implementation 'org.springframework.cloud:spring-cloud-starter-security'
+    implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.alibaba:druid-spring-boot-starter:1.1.14'
+    implementation ("mysql:mysql-connector-java:5.1.24")
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     runtimeOnly 'org.springframework.boot:spring-boot-devtools'

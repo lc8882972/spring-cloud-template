@@ -1,7 +1,0 @@
-pluginManagement {
-	repositories {
-		gradlePluginPortal()
-	}
-}
-//include ':sa',':sb'
-rootProject.name = 'base'

@@ -1,0 +1,42 @@
+plugins {
+	id 'org.springframework.boot' version '2.0.7.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.yan'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext {
+	set('springCloudVersion', 'Finchley.SR2')
+	set('discoveryPluginVersion', '4.8.3')
+	set('springCloudAlibabaVersion', '0.2.1.RELEASE')
+}
+
+repositories {
+	maven({ url 'https://maven.aliyun.com/repository/central' })
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.nepxion:discovery-plugin-starter-nacos'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.cloud:spring-cloud-starter-security'
+	implementation 'org.springframework.cloud:spring-cloud-starter-oauth2'
+	implementation 'org.springframework.security:spring-security-jwt'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	runtimeOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+		mavenBom "com.nepxion:discovery:${discoveryPluginVersion}"
+	}
+}
