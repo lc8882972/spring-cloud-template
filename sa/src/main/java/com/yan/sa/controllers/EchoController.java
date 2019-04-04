@@ -2,12 +2,15 @@ package com.yan.sa.controllers;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.yan.sa.annotation.LogEnable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
+
 
 @RestController
 @RequestMapping("/echo")
@@ -17,13 +20,13 @@ public class EchoController {
     @Autowired
     HttpServletRequest request;
 
+    @LogEnable()
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @SentinelResource(value = "resource", blockHandler = "exceptionHandler")
     public String hello() {
-        logger.info("sessionId = " + request.getRequestedSessionId());
-        logger.info("principal = " + request.getUserPrincipal());
-        logger.info("isUserInRole = " + request.isUserInRole("USER"));
-        logger.info("isUserInRole = " + request.isUserInRole("ROLE_USER"));
+        Principal principal = request.getUserPrincipal();
+
+        logger.info(request.getUserPrincipal().getName());
         return "Hello";
     }
 
