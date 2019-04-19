@@ -38,7 +38,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http.csrf().disable()
                 .httpBasic().disable()
                 .anonymous().disable()
-                .authorizeRequests().antMatchers("resources").permitAll().anyRequest().access("isAuthenticated()")
+                .authorizeRequests().antMatchers("resources", "/role/**").permitAll().anyRequest().access("isAuthenticated()")
                 .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
     }
 }

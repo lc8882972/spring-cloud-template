@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @EnableDiscoveryClient
 @EnableWebSecurity
 @EnableResourceServer
-@EnableCaching
 @EnableJpaRepositories(basePackages = "com.yan.sa.repositories")
 @EntityScan(basePackages = "com.yan.sa.entities")
 public class SaApplication {
